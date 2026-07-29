@@ -4,7 +4,7 @@ import AddAbout from "../pages/Add-About/Add-About.jsx";
 import AddCertificate from "../pages/Add-Certificate/Add-Certificate.jsx";
 import AddHeader from "../pages/Add-Header/Add-Header.jsx";
 import Comments from "../pages/Comments/Comments.jsx";
-import ProtectedRoute from "../components/ProtectedRoute.jsx";
+import ProtectedRoute from "../components/ProtectedRoute.jsx"
 import GuestRoute from "../components/GuestRoute.jsx";
 import Navbar from "../components/Navbar/Navbar.jsx";
 
@@ -34,7 +34,7 @@ const RoutesPath = [
         <DashboardLayout>
           <AddProjects />
         </DashboardLayout>
-      </ProtectedRoute>
+    </ProtectedRoute>
     ),
   },
   {
