@@ -1,0 +1,11 @@
+.main-wrapper-add-project{
+    padding: 50px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.form{
+    width: 100%;
+}
