@@ -1,11 +1,265 @@
-.main-wrapper-add-project{
-    padding: 50px;
-    border: 1px solid black;
+
+.projects-page-shell {
+    padding: 24px;
+}
+
+.main-wrapper-add-project {
+    max-width: 980px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(15, 23, 42, 0.04);
+    border-radius: 20px;
+    box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
+    padding: 32px;
+}
+
+.page-header {
+    margin-bottom: 24px;
+}
+
+.page-kicker {
+    display: inline-block;
+    margin-bottom: 8px;
+    color: #6366f1;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+}
+
+.page-header h1 {
+    margin: 0;
+    color: #111827;
+    font-size: clamp(2rem, 2vw + 1rem, 2.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.projects-form {
+    width: 100%;
+}
+
+.projects-form .ant-form-item {
+    margin-bottom: 24px;
+}
+
+.projects-form .ant-form-item-label > label {
+    height: auto;
+    color: #1f2937;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.projects-form .ant-input,
+.projects-form .ant-input-affix-wrapper,
+.projects-form .ant-input-textarea textarea {
+    border-radius: 10px;
+    border-color: #d9e2ec;
+    background: #fff;
+    transition: all 0.2s ease;
+    font-size: 14px;
+}
+
+.projects-form .ant-input:hover,
+.projects-form .ant-input-affix-wrapper:hover,
+.projects-form .ant-input-textarea textarea:hover {
+    border-color: #8c9afc;
+}
+
+.projects-form .ant-input:focus,
+.projects-form .ant-input-affix-wrapper:focus,
+.projects-form .ant-input-affix-wrapper-focused,
+.projects-form .ant-input-textarea textarea:focus {
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.12);
+    border-color: #6366f1;
+}
+
+.project-textarea {
+    min-height: 120px !important;
+}
+
+.array-input {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.array-input .tag-input {
+    flex: 1;
+}
+
+.tag-add-button {
+    min-width: 110px;
+    height: 40px;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.secondary-btn {
+    background: #f3f4f6;
+    border-color: #e5e7eb;
+    color: #111827;
+}
+
+.secondary-btn:hover {
+    color: #111827 !important;
+    border-color: #d1d5db !important;
+    background: #f9fafb !important;
+}
+
+.array-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 14px;
+}
+
+.project-tag {
+    display: inline-flex;
+    align-items: center;
+    min-height: 32px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.upload-section {
+    margin: 8px 0 24px;
+}
+
+.upload-card {
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    min-height: 220px;
+    border: 1px dashed #d9e2ec;
+    border-radius: 18px;
+    background: linear-gradient(180deg, #f8fafc 0%, #f5f7ff 100%);
+    padding: 24px;
 }
-.form{
+
+.project-upload {
     width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.ant-upload-wrapper.ant-upload-picture-card-wrapper .ant-upload.ant-upload-select {
+    width: 160px;
+    height: 160px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px dashed #c7d2fe;
+    transition: all 0.2s ease;
+}
+
+.ant-upload-wrapper.ant-upload-picture-card-wrapper .ant-upload.ant-upload-select:hover {
+    border-color: #6366f1;
+    box-shadow: 0 10px 24px rgba(99, 102, 241, 0.12);
+}
+
+.upload-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #475569;
+    font-size: 14px;
+}
+
+.upload-content .anticon {
+    font-size: 28px;
+    color: #6366f1;
+}
+
+.upload-label {
+    font-weight: 600;
+}
+
+.submit-form-item {
+    margin-bottom: 0 !important;
+}
+
+.submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 220px;
+    height: 44px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    box-shadow: 0 10px 24px rgba(59, 130, 246, 0.2);
+}
+
+@media (min-width: 992px) {
+    .projects-form .ant-form-item-label {
+        padding-right: 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    .projects-page-shell {
+        padding: 16px;
+    }
+
+    .main-wrapper-add-project {
+        margin: 0;
+        padding: 20px 16px;
+        border-radius: 16px;
+    }
+
+    .projects-form .ant-form-item-label {
+        text-align: left !important;
+        padding-bottom: 8px;
+    }
+
+    .projects-form .ant-form-item-control,
+    .projects-form .ant-form-item-control-input-content {
+        width: 100%;
+    }
+
+    .array-input {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .tag-add-button {
+        width: 100%;
+    }
+
+    .submit-btn {
+        width: 100%;
+    }
+
+    .upload-card {
+        min-height: 180px;
+        padding: 16px;
+    }
+
+    .ant-upload-wrapper.ant-upload-picture-card-wrapper .ant-upload.ant-upload-select {
+        width: 140px;
+        height: 140px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-header h1 {
+        font-size: 1.75rem;
+    }
+
+    .projects-page-shell {
+        padding: 12px;
+    }
+
+    .array-tags {
+        gap: 8px;
+    }
+
+    .project-tag {
+        font-size: 12px;
+    }
 }

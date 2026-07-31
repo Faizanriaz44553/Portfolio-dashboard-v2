@@ -4,12 +4,20 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body,
+#root {
   margin: 0;
   padding: 0;
+  min-height: 100%;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  background: #f5f5f5;
+}
+
+body {
+  overflow-x: hidden;
 }
 
 .main-layout {
@@ -20,6 +28,52 @@ html, body {
 
 .main-layout main {
   flex: 1;
+}
+
+.dashboard-layout {
+  min-height: 100vh;
+  background: #f5f5f5;
+}
+
+.dashboard-mobile-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 64px;
+  background: #001529;
+  padding: 0 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  line-height: 1;
+}
+
+.dashboard-mobile-menu-button {
+  color: #fff !important;
+  font-size: 18px !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboard-mobile-title {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.dashboard-content {
+  width: 100%;
+  min-height: 100vh;
+  padding: 24px;
+  background: #f5f5f5;
+  overflow-x: hidden;
+  transition: margin-left 0.2s ease, width 0.2s ease;
+}
+
+.dashboard-content > * {
+  max-width: 100%;
 }
 
 /* Utility classes */
@@ -48,7 +102,8 @@ html, body {
 .items-center {
   align-items: center;
 }
-.font{
+
+.font {
   font-size: 3rem;
   color: #1a1a1a;
   text-align: center;
