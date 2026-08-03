@@ -1,6 +1,6 @@
 import { Navigate } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
 import Customloader from "./UI/Customloader";
+import { useAuth } from "../context/AuthContext";
 
 const GuestRoute = ({ children }) => {
   const { user, loading } = useAuth();
