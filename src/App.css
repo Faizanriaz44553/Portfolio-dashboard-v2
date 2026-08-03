@@ -4,18 +4,57 @@
   margin: 0 auto;
   padding: 2rem;
 }
+.portfolio-live-box {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 1000;
+}
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.portfolio-live-box a {
+  width: 58px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #001529;
+  color: #fff;
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 24px;
+  box-shadow: 0 10px 25px rgba(0, 21, 41, 0.35);
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+
+.portfolio-live-box a:hover {
+  background: #1677ff;
+  transform: translateY(-4px) scale(1.06);
+  box-shadow: 0 16px 32px rgba(22, 119, 255, 0.4);
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+
+.portfolio-live-box a:active {
+  transform: scale(0.95);
+}
+
+.portfolio-live-box a:focus-visible {
+  outline: 3px solid rgba(22, 119, 255, 0.35);
+  outline-offset: 4px;
+}
+
+@media (max-width: 768px) {
+  .portfolio-live-box {
+    right: 18px;
+    bottom: 18px;
+  }
+
+  .portfolio-live-box a {
+    width: 52px;
+    height: 52px;
+    font-size: 22px;
+  }
 }
 
 @keyframes logo-spin {

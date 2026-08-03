@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Drawer, Grid, Layout } from "antd";
-import { MenuOutlined } from "@ant-design/icons";
+import {GlobalOutlined, MenuOutlined } from "@ant-design/icons";
 import Login from "../pages/login/Login.jsx";
 import AddProjects from "../pages/Add-Projects/Add-Projects.jsx";
 import AddAbout from "../pages/Add-About/Add-About.jsx";
@@ -61,7 +61,7 @@ const DashboardLayout = ({ children }) => {
           >
             <Navbar
               collapsed={false}
-              setCollapsed={() => {}}
+              setCollapsed={() => { }}
               mobile
               onClose={() => setMobileOpen(false)}
             />
@@ -77,6 +77,17 @@ const DashboardLayout = ({ children }) => {
         }}
       >
         {children}
+        <div className="portfolio-live-box">
+          <a
+            href="https://faizandevvercelcom.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View Live Portfolio"
+            title="View Live Portfolio"
+          >
+            <GlobalOutlined />
+          </a>
+        </div>
       </Content>
     </Layout>
   );

@@ -3,6 +3,7 @@ import { Button, Card, message } from "antd";
 import { collection, deleteDoc, doc, getDocs } from "firebase/firestore";
 import { db } from "../../../firebase.config.js";
 import Customloader from "../../components/UI/Customloader.jsx";
+import './All-Projects.css'
 
 const { Meta } = Card;
 
@@ -60,18 +61,14 @@ const AllProjects = () => {
 
   return (
     <div
-      style={{
-        display: "flex",
-        flexWrap: "wrap",
-        gap: "20px",
-      }}
+     className="allprojects-main-wrapper"
     >
       {data.map((item) => (
         <Card
           key={item.id}
           hoverable
           variant="borderless"
-          style={{ width: 240 }}
+          className="allprojects-main-wrapper-card"
           cover={
             <img
               draggable={false}

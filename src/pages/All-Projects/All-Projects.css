@@ -1,0 +1,15 @@
+.allprojects-main-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.allprojects-main-wrapper-card {
+    width: calc(50% - 5px);
+}
+
+@media (max-width: 768px) {
+    .allprojects-main-wrapper-card {
+        width: 100%;
+    }
+}
