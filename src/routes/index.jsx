@@ -10,7 +10,7 @@ import Comments from "../pages/Comments/Comments.jsx";
 import ProtectedRoute from "../components/ProtectedRoute.jsx";
 import GuestRoute from "../components/GuestRoute.jsx";
 import Navbar from "../components/Navbar/Navbar.jsx";
-import AllProjects from "../pages/All-Projects/All-projects.jsx";
+import AllProjects from "../pages/All-Projects/All-Projects.jsx";
 
 
 const { Content, Header } = Layout;
