@@ -9,6 +9,7 @@ import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
 import { message } from "antd";
 import { db } from "../../../firebase.config";
+import { useNavigate } from "react-router-dom";
 
 const AddProjects = () => {
   const [image, setImage] = useState(null);
@@ -18,6 +19,7 @@ const AddProjects = () => {
   const [teckhawks, setTeckhawks] = useState([]);
   const [loading, setLoading] = useState(false);
   const [form] = Form.useForm();
+  const navigate = useNavigate()
 
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
@@ -44,45 +46,46 @@ const AddProjects = () => {
     setTeckhawks((prev) => prev.filter((_, i) => i !== index));
   };
 
-const onFinish = async (values) => {
-   setLoading(true);
-  try {
-    const result = await uploadImage(image);
+  const onFinish = async (values) => {
+    setLoading(true);
+    try {
+      const result = await uploadImage(image);
 
-    if (!result.success) {
-      message.error(result.message);
-      return;
+      if (!result.success) {
+        message.error(result.message);
+        return;
+      }
+
+      const project = {
+        ...values,
+        Features: features,
+        TechStack: teckhawks,
+        Img: result.url,
+        createdAt: serverTimestamp(),
+      };
+
+      await addDoc(collection(db, "projects"), project);
+
+      message.success("Project added successfully.");
+
+      console.log(project);
+
+      form.resetFields();
+
+      setFeature("");
+      setFeatures([]);
+      setTeckhawk("");
+      setTeckhawks([]);
+      setImage(null);
+      navigate("/all-projects")
+    } catch (error) {
+      console.error(error);
+      message.error("Failed to add project.");
     }
-
-    const project = {
-      ...values,
-      Features: features,
-      TechStack: teckhawks,
-      Img: result.url,
-      createdAt: serverTimestamp(),
-    };
-
-    await addDoc(collection(db, "projects"), project);
-
-    message.success("Project added successfully.");
-
-    console.log(project);
-
-    form.resetFields(); 
-
-    setFeature("");
-    setFeatures([]);
-    setTeckhawk("");
-    setTeckhawks([]);
-    setImage(null);
-  } catch (error) {
-    console.error(error);
-    message.error("Failed to add project.");
-  }
-  finally {
-    setLoading(false);
-  }
-};
+    finally {
+      setLoading(false);
+    }
+  };
   return (
     <div className="projects-page-shell">
       <div className="main-wrapper-add-project">
@@ -94,9 +97,8 @@ const onFinish = async (values) => {
         <Form
           form={form}
           name="basic"
-          labelCol={{ span: 8 }}
-          wrapperCol={{ span: 16 }}
-          className="projects-form"
+           layout="vertical"
+  className="projects-form"
           initialValues={{ remember: true }}
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
@@ -192,7 +194,8 @@ const onFinish = async (values) => {
             </div>
           </Form.Item>
 
-          <div className="upload-section">
+          <Form.Item label="upload">
+                      <div className="upload-section">
             <div className="upload-card">
               <Upload
                 listType="picture-card"
@@ -218,17 +221,18 @@ const onFinish = async (values) => {
               </Upload>
             </div>
           </div>
+</Form.Item>
 
-          <Form.Item label={null} className="submit-form-item">
+          <Form.Item >
             <Button
-  type="primary"
-  htmlType="submit"
-  loading={loading}
-  disabled={loading}
-  className="submit-btn"
->
-  {loading ? "Submitting..." : "Submit"}
-</Button>
+              type="primary"
+              htmlType="submit"
+              loading={loading}
+              disabled={loading}
+            className="submit-btn"
+            >
+              {loading ? "Submitting..." : "Submit"}
+            </Button>
           </Form.Item>
         </Form>
       </div>

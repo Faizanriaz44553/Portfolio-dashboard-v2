@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   AppstoreOutlined,
   CloseOutlined,
@@ -9,6 +9,7 @@ import {
   MessageOutlined,
   UserOutlined,
   LogoutOutlined,
+  HddFilled,
 } from "@ant-design/icons";
 import { Button, Layout, Menu } from "antd";
 import { Link, useNavigate, useLocation } from "react-router-dom";
@@ -18,7 +19,7 @@ import "../../styles/globals.css";
 const { Sider } = Layout;
 
 const Navbar = ({ collapsed = false, setCollapsed = () => {}, mobile = false, onClose = () => {} }) => {
-  const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -41,6 +42,11 @@ const Navbar = ({ collapsed = false, setCollapsed = () => {}, mobile = false, on
       key: "/add-projects",
       icon: <FolderOpenOutlined />,
       label: <Link to="/add-projects">Add Projects</Link>,
+    },
+    {
+      key: "/all-projects",
+      icon: <HddFilled />,
+      label: <Link to="/all-projects">All Projects</Link>,
     },
     {
       key: "/add-about",

@@ -10,6 +10,7 @@ import Comments from "../pages/Comments/Comments.jsx";
 import ProtectedRoute from "../components/ProtectedRoute.jsx";
 import GuestRoute from "../components/GuestRoute.jsx";
 import Navbar from "../components/Navbar/Navbar.jsx";
+import AllProjects from "../pages/All-Projects/All-projects.jsx";
 
 const { Content, Header } = Layout;
 const { useBreakpoint } = Grid;
@@ -95,6 +96,16 @@ const RoutesPath = [
       <ProtectedRoute>
         <DashboardLayout>
           <AddProjects />
+        </DashboardLayout>
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/all-projects",
+    element: (
+      <ProtectedRoute>
+        <DashboardLayout>
+          <AllProjects />
         </DashboardLayout>
       </ProtectedRoute>
     ),
