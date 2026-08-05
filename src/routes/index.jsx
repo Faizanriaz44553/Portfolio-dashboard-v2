@@ -11,6 +11,7 @@ import ProtectedRoute from "../components/ProtectedRoute.jsx";
 import GuestRoute from "../components/GuestRoute.jsx";
 import Navbar from "../components/Navbar/Navbar.jsx";
 import AllProjects from "../pages/All-Projects/All-Projects.jsx";
+import { portfolioLink } from "../utils/hardcodeData.js";
 
 
 const { Content, Header } = Layout;
@@ -79,7 +80,7 @@ const DashboardLayout = ({ children }) => {
         {children}
         <div className="portfolio-live-box">
           <a
-            href="https://faizandevvercelcom.vercel.app/"
+            href={portfolioLink.link}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="View Live Portfolio"
