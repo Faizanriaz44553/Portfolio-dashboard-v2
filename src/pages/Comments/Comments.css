@@ -1,0 +1,283 @@
+/* ===========================
+   MAIN LAYOUT
+=========================== */
+
+.comments-main-wrapper {
+  padding: 24px;
+  background: #f5f7fb;
+  min-height: 100vh;
+}
+
+.comments-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.comments-header-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.comments-page-title {
+  margin: 0 !important;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #1f2937 !important;
+}
+
+.comments-title-icon {
+  color: #1677ff;
+  font-size: 28px;
+}
+
+.comments-page-subtitle {
+  color: #6b7280;
+  margin-top: 5px;
+}
+
+.comments-refresh-btn {
+  height: 46px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+/* ===========================
+   STATS
+=========================== */
+
+.comments-stats-row {
+  margin-bottom: 24px;
+}
+
+.comments-stats-card {
+  border-radius: 16px !important;
+  border: none !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .05);
+  transition: .3s;
+}
+
+.comments-stats-card:hover {
+  transform: translateY(-4px);
+}
+
+.comments-stats-title {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.comments-stats-value {
+  margin: 10px 0 0 !important;
+  color: #1677ff !important;
+}
+
+/* ===========================
+   SEARCH
+=========================== */
+
+.comments-search-card {
+  margin-bottom: 24px;
+  border-radius: 16px !important;
+  border: none !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,.05);
+}
+
+/* .comments-search-card .ant-input-group-wrapper {
+  width: 100%;
+}
+
+.comments-search-card .ant-input {
+  height: 46px;
+} */
+
+/* .comments-search-card .ant-btn {
+  height: 46px;
+  font-weight: 600;
+} */
+
+/* ===========================
+   TABLE
+=========================== */
+
+.comments-table-card {
+  border-radius: 16px !important;
+  border: none !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,.05);
+}
+
+.comments-table-card .ant-table {
+  background: transparent;
+}
+
+.comments-table-card .ant-table-thead>tr>th {
+  background: #f9fafb !important;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.comments-table-card .ant-table-tbody>tr {
+  transition: .25s;
+}
+
+.comments-table-card .ant-table-tbody>tr:hover {
+  background: #f5f9ff !important;
+}
+
+.comments-table-card .ant-table-cell {
+  vertical-align: middle;
+}
+
+/* ===========================
+   USER INFO
+=========================== */
+
+.comments-user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.comments-user-name {
+  font-size: 15px;
+}
+
+.comments-user-date {
+  color: #9ca3af;
+  font-size: 12px;
+}
+
+.comments-message {
+  color: #374151;
+  line-height: 1.7;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+
+  overflow: hidden;
+}
+
+/* ===========================
+   BUTTONS
+=========================== */
+
+.comments-view-btn,
+.comments-delete-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+}
+
+.comments-view-btn:hover {
+  background: #eaf3ff !important;
+  color: #1677ff !important;
+}
+
+.comments-delete-btn:hover {
+  background: #fff2f0 !important;
+}
+
+/* ===========================
+   PAGINATION
+=========================== */
+
+.comments-table-card .ant-pagination {
+  margin-top: 25px;
+}
+
+.comments-table-card .ant-pagination-item-active {
+  border-color: #1677ff;
+}
+
+.comments-table-card .ant-pagination-item-active a {
+  color: #1677ff;
+}
+
+/* ===========================
+   SCROLLBAR
+=========================== */
+
+.comments-table-card ::-webkit-scrollbar {
+  height: 8px;
+}
+
+.comments-table-card ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 20px;
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media (max-width:992px) {
+
+  .comments-main-wrapper {
+    padding: 18px;
+  }
+
+  .comments-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .comments-refresh-btn {
+    width: 100%;
+  }
+
+}
+
+@media (max-width:768px) {
+
+  .comments-main-wrapper {
+    padding: 15px;
+  }
+
+  .comments-page-title {
+    font-size: 26px !important;
+  }
+
+  .comments-page-subtitle {
+    font-size: 13px;
+  }
+
+  .comments-table-card {
+    padding: 0;
+  }
+
+  .comments-user-name {
+    font-size: 14px;
+  }
+
+  .comments-message {
+    font-size: 13px;
+  }
+
+}
+
+@media (max-width:576px) {
+
+  .comments-main-wrapper {
+    padding: 12px;
+  }
+
+  .comments-page-title {
+    font-size: 22px !important;
+  }
+
+  .comments-title-icon {
+    font-size: 22px;
+  }
+
+  .comments-stats-card {
+    text-align: center;
+  }
+
+  .comments-search-card .ant-btn {
+    padding-inline: 18px;
+  }
+
+}

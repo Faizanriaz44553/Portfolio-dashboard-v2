@@ -11,7 +11,8 @@ const AllProjects = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [deletingId, setDeletingId] = useState(null);
-
+  console.log();
+  
   const DeleteData = async (id) => {
     setDeletingId(id);
 

@@ -61,7 +61,7 @@ const Navbar = ({ collapsed = false, setCollapsed = () => {}, mobile = false, on
     {
       key: "/add-header",
       icon: <AppstoreOutlined />,
-      label: <Link to="/add-header">Add Header</Link>,
+      label: <Link to="/add-header">Header Settings</Link>,
     },
     {
       key: "/comments",
