@@ -1,15 +1,256 @@
 .allprojects-main-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+  min-height: 100vh;
+  padding: 28px;
+  background: #f5f7fb;
 }
 
-.allprojects-main-wrapper-card {
-    width: calc(50% - 5px);
+/* =========================
+   HEADER
+========================= */
+
+.allprojects-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
 }
 
-@media (max-width: 768px) {
-    .allprojects-main-wrapper-card {
-        width: 100%;
-    }
+.allprojects-heading-content {
+  min-width: 0;
+}
+
+.allprojects-heading {
+  margin: 0;
+  color: #111827;
+  font-size: 30px;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+.allprojects-heading-description {
+  margin: 7px 0 0;
+  color: #667085;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.allprojects-total {
+  min-width: 145px;
+  padding: 14px 20px;
+  background: #ffffff;
+  border: 1px solid #eaecf0;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(16, 24, 40, 0.04);
+}
+
+.allprojects-total span {
+  display: block;
+  margin-bottom: 4px;
+  color: #667085;
+  font-size: 12px;
+}
+
+.allprojects-total strong {
+  color: #1677ff;
+  font-size: 24px;
+  line-height: 1;
+}
+
+/* =========================
+   GRID
+========================= */
+
+.allprojects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.allprojects-card {
+  overflow: hidden;
+  height: 100%;
+  border: 1px solid #eaecf0 !important;
+  border-radius: 14px !important;
+  background: #ffffff;
+  box-shadow: 0 4px 18px rgba(16, 24, 40, 0.05);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.allprojects-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(16, 24, 40, 0.09);
+}
+
+/* =========================
+   IMAGE
+========================= */
+
+.allprojects-image-wrapper {
+  height: 210px;
+  overflow: hidden;
+  background: #f2f4f7;
+}
+
+.allprojects-project-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.allprojects-card:hover .allprojects-project-image {
+  transform: scale(1.03);
+}
+
+/* =========================
+   CARD BODY
+========================= */
+
+.allprojects-card .ant-card-body {
+  padding: 18px;
+}
+
+.allprojects-project-title {
+  margin: 0 0 7px;
+  color: #1d2939;
+  font-size: 17px;
+  font-weight: 650;
+}
+
+.allprojects-description {
+  display: -webkit-box;
+  overflow: hidden;
+  margin: 0;
+  color: #667085;
+  font-size: 13px;
+  line-height: 1.65;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+/* =========================
+   DATE
+========================= */
+
+.allprojects-date {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 15px;
+  padding-top: 13px;
+  border-top: 1px solid #f0f2f5;
+  color: #98a2b3;
+  font-size: 12px;
+}
+
+/* =========================
+   ACTIONS
+========================= */
+
+.allprojects-actions {
+  display: flex;
+ justify-content: center;
+ align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.allprojects-actions .ant-btn {
+    width: 100%;
+  height: 38px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* =========================
+   EMPTY
+========================= */
+
+.allprojects-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 280px;
+  margin-top: 20px;
+  padding: 30px;
+  border: 1px dashed #d0d5dd;
+  border-radius: 14px;
+  background: #ffffff;
+  text-align: center;
+}
+
+.allprojects-empty .anticon {
+  margin-bottom: 12px;
+  color: #98a2b3;
+  font-size: 36px;
+}
+
+.allprojects-empty h3 {
+  margin: 0 0 5px;
+  color: #344054;
+}
+
+.allprojects-empty p {
+  margin: 0;
+  color: #98a2b3;
+  font-size: 13px;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+  .allprojects-main-wrapper {
+    padding: 20px;
+  }
+
+  .allprojects-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+  .allprojects-main-wrapper {
+    padding: 14px;
+  }
+
+  .allprojects-header {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .allprojects-heading {
+    font-size: 25px;
+  }
+
+  .allprojects-total {
+    width: 100%;
+  }
+
+  .allprojects-image-wrapper {
+    height: 190px;
+  }
+
+  .allprojects-actions {
+    display: block;
+  }
+
 }

@@ -12,6 +12,8 @@ import {
   Typography,
   Row,
   Col,
+  Modal,
+  message,
 } from "antd";
 
 import {
@@ -21,10 +23,13 @@ import {
   EyeOutlined,
   DeleteOutlined,
   ReloadOutlined,
+  ClockCircleOutlined,
 } from "@ant-design/icons";
 
 import {
   collection,
+  deleteDoc,
+  doc,
   getDocs,
   orderBy,
   query,
@@ -42,6 +47,8 @@ const Comments = () => {
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalFilter , setmodalFilter] = useState()
 
   // ===============================
   // Get Comments
@@ -102,20 +109,37 @@ const Comments = () => {
   // Delete
   // ===============================
 
-  const handleDelete = (id) => {
+  const handleDelete = async(id) => {
     console.log("Delete :", id);
-
-    // Firebase Delete yahan add karenge
+     try {
+            const deleteRef = doc(db, "portfolio-comments", id);
+            await deleteDoc(deleteRef);
+      
+            console.log(`Deleted successfully. ID: ${id}`);
+       setData((prev) => prev.filter((item) => item.id !== id));
+       message.success("Comment deleted successfully.");
+       CommentsData()
+     } catch (error) {
+               console.error(error);
+      message.error("Failed to add project.");
+     }
   };
 
   // ===============================
   // View
   // ===============================
 
-  const handleView = (record) => {
-    console.log(record);
 
-    // Modal next part me banayenge
+    const showModal = (record) => {
+      setIsModalOpen(true);
+      console.log(record);
+      setmodalFilter(record)
+  };
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
   };
 
   // ===============================
@@ -192,7 +216,7 @@ const Comments = () => {
               type="text"
               className="comments-view-btn"
               icon={<EyeOutlined />}
-              onClick={() => handleView(record)}
+              onClick={() => showModal(record)}
             />
           </Tooltip>
 
@@ -348,7 +372,7 @@ const Comments = () => {
       <Card className="comments-table-card">
 
         {
-          loading ?
+          data.length === 0 ?
 
             <Customloader />
 
@@ -376,7 +400,59 @@ const Comments = () => {
         }
 
       </Card>
+<Modal
+  title="Comment Details"
+  open={isModalOpen}
+  onCancel={handleCancel}
+  footer={null}
+  centered
+  width={500}
+  className="comments-view-modal"
+>
+  <div className="comments-modal-content">
 
+    {/* User */}
+    <div className="comments-modal-user">
+
+      <Avatar
+        size={52}
+        src={modalFilter?.profileImage || undefined}
+        icon={
+          !modalFilter?.profileImage && <UserOutlined />
+        }
+      >
+        {!modalFilter?.profileImage &&
+          modalFilter?.userName?.charAt(0).toUpperCase()}
+      </Avatar>
+
+      <div className="comments-modal-user-info">
+
+        <h3>
+          {modalFilter?.userName}
+        </h3>
+
+        <span>
+          <ClockCircleOutlined />
+          {modalFilter?.createdAt
+            ?.toDate()
+            .toLocaleString()}
+        </span>
+
+      </div>
+
+    </div>
+
+    {/* Comment */}
+    <div className="comments-modal-comment">
+
+      <p>
+        {modalFilter?.content}
+      </p>
+
+    </div>
+
+  </div>
+</Modal>
     </div>
   );
 };
