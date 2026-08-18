@@ -14,6 +14,7 @@ import {
   EditOutlined,
   EyeOutlined,
 } from "@ant-design/icons";
+import CustomModal from "../../components/UI/CustomModal.jsx";
 
 const { Meta } = Card;
 
@@ -140,12 +141,7 @@ const AllProjects = () => {
         </div>
 
         <div className="allprojects-actions">
-          <Button
-            icon={<EditOutlined />}
-            onClick={() => HandleEdit(item)}
-          >
-            Edit
-          </Button>
+          <CustomModal data={item} />
 
           <Popconfirm
             title="Delete this project?"
