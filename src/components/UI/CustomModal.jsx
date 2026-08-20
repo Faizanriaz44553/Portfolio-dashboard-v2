@@ -5,19 +5,21 @@ import { EditOutlined, PlusOutlined } from "@ant-design/icons";
 import { db } from '../../../firebase.config';
 import TextArea from 'antd/es/input/TextArea';
 import { useNavigate } from 'react-router-dom';
-const CustomModal = ({ data }) => {
+
+
+const CustomModal = ({ data , updateData}) => {
   const [open, setOpen] = useState(false);
   const [confirmLoading, setConfirmLoading] = useState(false);
-  const [image, setImage] = useState(null);
+  // const [image, setImage] = useState(null);
   const [feature, setFeature] = useState("");
   const [features, setFeatures] = useState([]);
   const [teckhawk, setTeckhawk] = useState("");
   const [teckhawks, setTeckhawks] = useState([]);
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
   const [form] = Form.useForm();
   const [imgLink, setImglink] = useState("")
   const navigate = useNavigate()
-
+// console.log(updateData)
   // open modal fecth data and export data from input fields
   const showModal = async () => {
     try {
@@ -56,20 +58,17 @@ const CustomModal = ({ data }) => {
         ...values,
         Features: features,
         TechStack: teckhawks,
-        Img : imgLink
+        Img: imgLink,
+        createdAt: serverTimestamp(),
       };
 
-      console.log(project);
-
       await setDoc(doc(db, "projects", data.id), project);
-console.log(project);
-
       message.success("Project updated successfully.");
-
+    
       form.resetFields();
       setFeatures([]);
       setTeckhawks([]);
-
+      updateData()
       setOpen(false);
     } catch (error) {
       console.error(error);
@@ -107,7 +106,7 @@ console.log(project);
 
     setTeckhawk("");
   };
-  // teckhawn remove function 
+  // teckhawk remove function 
   const removeTeckhawk = (index) => {
     setTeckhawks((prev) => prev.filter((_, i) => i !== index));
   };

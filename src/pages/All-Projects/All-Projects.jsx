@@ -123,11 +123,6 @@ const AllProjects = () => {
           </div>
         }
       >
-
-        <h3 className="allprojects-project-title">
-          {item.title || "Portfolio Project"}
-        </h3>
-
         <p className="allprojects-description">
           {item.Description}
         </p>
@@ -141,7 +136,7 @@ const AllProjects = () => {
         </div>
 
         <div className="allprojects-actions">
-          <CustomModal data={item} />
+          <CustomModal data={item} updateData={AllData} />
 
           <Popconfirm
             title="Delete this project?"
@@ -161,6 +156,7 @@ const AllProjects = () => {
               Delete
             </Button>
           </Popconfirm>
+          
 
         </div>
 
