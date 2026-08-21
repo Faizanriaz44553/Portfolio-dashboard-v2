@@ -1,0 +1,267 @@
+.c-upload-main-wrapper {
+  width: 100%;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 40px;
+  padding: 24px 28px;
+
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+}
+
+.c-upload-sec1-wrap {
+  width: 65%;
+  min-width: 0;
+}
+
+.c-upload-sec1-wrap h1 {
+  margin: 0 0 6px;
+
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 600;
+
+  color: #111827;
+}
+
+.c-upload-sec1-wrap > p {
+  margin: 0;
+
+  max-width: 620px;
+
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 400;
+
+  color: #6b7280;
+}
+
+.c-upload-sec2-wrap {
+  width: 35%;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.c-upload-sec2-wrap > button {
+  min-width: 170px;
+
+  padding: 10px 16px;
+
+  border: 1px solid #1677ff;
+  border-radius: 6px;
+
+  background: #1677ff;
+  color: #fff;
+
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition: background-color 0.15s ease;
+}
+
+.c-upload-sec2-wrap > button:hover {
+  background: #0958d9;
+}
+
+.c-upload-sec2-wrap > button:active {
+  background: #003eb3;
+}
+
+
+/* Upload area inside Modal */
+
+.project-upload {
+  width: 100%;
+}
+
+.upload-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 6px;
+
+  color: #8c8c8c;
+}
+
+.upload-content .anticon {
+  font-size: 22px;
+}
+
+.upload-label {
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 400;
+}
+.certificate-list {
+  width: 100%;
+  margin-top: 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.certificate-item {
+  width: 100%;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+
+  gap: 18px;
+
+  padding: 12px 14px;
+
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+}
+
+
+/* Certificate Image */
+
+.certificate-image-wrapper {
+  width: 120px;
+  height: 78px;
+
+  flex-shrink: 0;
+
+  overflow: hidden;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 5px;
+
+  background: #f9fafb;
+}
+
+.certificate-image {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+
+/* Date */
+
+.certificate-date {
+  flex: 1;
+}
+
+.certificate-date span {
+  display: block;
+
+  margin-bottom: 3px;
+
+  font-size: 12px;
+  line-height: 18px;
+
+  color: #9ca3af;
+}
+
+.certificate-date p {
+  margin: 0;
+
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+
+  color: #374151;
+}
+
+
+/* Delete */
+
+.certificate-delete-btn {
+  flex-shrink: 0;
+
+  padding: 7px 13px;
+
+  border: 1px solid #ffccc7;
+  border-radius: 6px;
+
+  background: #fff;
+
+  color: #d4380d;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.certificate-delete-btn:hover {
+  background: #fff2f0;
+  border-color: #ff7875;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+  .certificate-item {
+    gap: 12px;
+    padding: 10px;
+  }
+
+  .certificate-image-wrapper {
+    width: 90px;
+    height: 62px;
+  }
+
+  .certificate-date p {
+    font-size: 13px;
+  }
+
+  .certificate-delete-btn {
+    padding: 6px 10px;
+  }
+
+}
+
+
+/* Tablet / Mobile */
+
+@media (max-width: 768px) {
+  .c-upload-main-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .c-upload-sec1-wrap,
+  .c-upload-sec2-wrap {
+    width: 100%;
+  }
+
+  .c-upload-sec2-wrap {
+    justify-content: flex-start;
+  }
+
+  .c-upload-sec2-wrap > button {
+    width: 100%;
+  }
+}

@@ -20,7 +20,7 @@ const AddProjects = () => {
   const [loading, setLoading] = useState(false);
   const [form] = Form.useForm();
   const navigate = useNavigate()
-
+  
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
@@ -97,8 +97,8 @@ const AddProjects = () => {
         <Form
           form={form}
           name="basic"
-           layout="vertical"
-  className="projects-form"
+          layout="vertical"
+          className="projects-form"
           initialValues={{ remember: true }}
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
@@ -195,33 +195,34 @@ const AddProjects = () => {
           </Form.Item>
 
           <Form.Item label="upload">
-                      <div className="upload-section">
-            <div className="upload-card">
-              <Upload
-                listType="picture-card"
-                maxCount={1}
-                className="project-upload"
-                beforeUpload={(file) => {
-                  const result = validateImage(file);
+            <div className="upload-section">
+              <div className="upload-card">
+                <Upload
+                  listType="picture-card"
+                  maxCount={1}
+                  className="project-upload"
+                  beforeUpload={(file) => {
+                    const result = validateImage(file);
 
-                  if (!result.valid) {
-                    message.error(result.message);
-                    return Upload.LIST_IGNORE;
-                  }
+                    if (!result.valid) {
+                      message.error(result.message);
+                      return Upload.LIST_IGNORE;
+                    }
 
-                  setImage(file);
-
-                  return false;
-                }}
-              >
-                <div className="upload-content">
-                  <PlusOutlined />
-                  <div className="upload-label">Upload</div>
-                </div>
-              </Upload>
+                    setImage(file);
+                     console.log(file);
+                     
+                    return false;
+                  }}
+                >
+                  <div className="upload-content">
+                    <PlusOutlined />
+                    <div className="upload-label">Upload</div>
+                  </div>
+                </Upload>
+              </div>
             </div>
-          </div>
-</Form.Item>
+          </Form.Item>
 
           <Form.Item >
             <Button
@@ -229,7 +230,7 @@ const AddProjects = () => {
               htmlType="submit"
               loading={loading}
               disabled={loading}
-            className="submit-btn"
+              className="submit-btn"
             >
               {loading ? "Submitting..." : "Submit"}
             </Button>
