@@ -1,4 +1,4 @@
-import { Empty, message, Modal, Skeleton, Upload } from "antd";
+import { Button, Empty, message, Modal, Popconfirm, Skeleton, Upload } from "antd";
 import { validateImage } from "../../utils/validateImage";
 import { PlusOutlined } from "@ant-design/icons";
 import { useEffect, useState } from "react";
@@ -14,6 +14,7 @@ const AddCertificate = () => {
   const [confirmLoading, setConfirmLoading] = useState(false);
   const [fileList, setFileList] = useState([]);
   const [certificate, setCertificate] = useState([])
+  const [messageApi, holder] = message.useMessage();
   // console.log(certificate);
 
   const showModal = () => {
@@ -32,7 +33,7 @@ const AddCertificate = () => {
         ...result,
         createdAt: serverTimestamp(),
       });
-      message.success("Project added successfully.");
+      message.success("Certificate added successfully.");
       setImage(null)
       setOpen(false);
       setConfirmLoading(false);
@@ -60,7 +61,7 @@ const AddCertificate = () => {
         ...doc.data(),
       }));
 
-      console.log(certificates);
+      // console.log(certificates);
       setConfirmLoading(false);
       setCertificate(certificates);
 
@@ -70,7 +71,6 @@ const AddCertificate = () => {
     }
   };
 
-
   const DeleteData = async (id) => {
     setConfirmLoading(true)
     try {
@@ -78,12 +78,13 @@ const AddCertificate = () => {
       await deleteDoc(deleteRef);
       // console.log(`Deleted successfully. ID: ${id}`);
 
-      
+
       setCertificate((prev) =>
         prev.filter((item) => item.id !== id)
       );
 
-      message.success("Deleted successfully");
+      console.log(id);
+      message.success('certificate deleted succesfully');
       CertificateData()
       setConfirmLoading(false)
     } catch (error) {
@@ -92,7 +93,9 @@ const AddCertificate = () => {
     }
   };
 
-
+  const cancel = e => {
+    console.log(e);
+  };
   useEffect(() => {
     CertificateData();
   }, []);
@@ -157,7 +160,7 @@ const AddCertificate = () => {
 
       {/* certificate lists */}
       {
-        confirmLoading ? <Skeleton /> : certificate.length === 0 ? <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="No Data Found"/> :
+        confirmLoading ? <Skeleton /> : certificate.length === 0 ? <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="No Data Found" /> :
           certificate?.map((item, index) => {
             return (
               <div className="certificate-list" key={index}>
@@ -173,9 +176,17 @@ const AddCertificate = () => {
                     <span>Uploaded</span>
                     <p>{item?.createdAt?.toDate()?.toLocaleDateString()}</p>
                   </div>
-                  <button className="certificate-delete-btn" onClick={() => DeleteData(item?.id)}>
-                    Delete
-                  </button>
+                  {holder}
+                  <Popconfirm
+                    title="Delete the certificate"
+                    description="Are you sure to delete this certificate?"
+                    onConfirm={() => DeleteData(item?.id)}
+                    onCancel={cancel}
+                    okText="Yes"
+                    cancelText="No"
+                  >
+                    <Button danger>Delete</Button>
+                  </Popconfirm>
                 </div>
               </div>
             )
