@@ -1,4 +1,4 @@
-import { Button, Form, Input, Tag, message } from "antd";
+import { Button, Form, Input, Skeleton, Tag, message } from "antd";
 import TextArea from "antd/es/input/TextArea";
 import { useEffect, useState } from "react";
 import { PlusOutlined } from "@ant-design/icons";
@@ -121,7 +121,7 @@ const AddHeader = () => {
         <span className="page-kicker">Portfolio</span>
         <h1>Header Settings</h1>
       </div>
-      {pageLoading ? <Customloader /> :
+      {pageLoading ? <Skeleton active paragraph={{rows: 10 ,}} /> :
       <Form
         form={form}
         layout="vertical"

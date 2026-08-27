@@ -1,4 +1,4 @@
-import { message, Modal, Upload } from "antd";
+import { Empty, message, Modal, Skeleton, Upload } from "antd";
 import { validateImage } from "../../utils/validateImage";
 import { PlusOutlined } from "@ant-design/icons";
 import { useEffect, useState } from "react";
@@ -14,7 +14,7 @@ const AddCertificate = () => {
   const [confirmLoading, setConfirmLoading] = useState(false);
   const [fileList, setFileList] = useState([]);
   const [certificate, setCertificate] = useState([])
-  console.log(certificate);
+  // console.log(certificate);
 
   const showModal = () => {
     setOpen(true);
@@ -50,10 +50,10 @@ const AddCertificate = () => {
   };
 
   const CertificateData = async () => {
+    setConfirmLoading(true);
     try {
-      const querySnapshot = await getDocs(
-        collection(db, "certificates")
-      );
+      const querySnapshot = await getDocs(collection(db, "certificates"));
+      //  console.log(querySnapshot);
 
       const certificates = querySnapshot.docs.map((doc) => ({
         id: doc.id,
@@ -61,7 +61,7 @@ const AddCertificate = () => {
       }));
 
       console.log(certificates);
-
+      setConfirmLoading(false);
       setCertificate(certificates);
 
     } catch (error) {
@@ -72,19 +72,20 @@ const AddCertificate = () => {
 
 
   const DeleteData = async (id) => {
+    setConfirmLoading(true)
     try {
       const deleteRef = doc(db, "certificates", id);
-
       await deleteDoc(deleteRef);
+      // console.log(`Deleted successfully. ID: ${id}`);
 
-      console.log(`Deleted successfully. ID: ${id}`);
-
+      
       setCertificate((prev) =>
         prev.filter((item) => item.id !== id)
       );
 
       message.success("Deleted successfully");
       CertificateData()
+      setConfirmLoading(false)
     } catch (error) {
       console.log(error.message);
       message.error(error.message);
@@ -98,21 +99,16 @@ const AddCertificate = () => {
   return (
     <div>
       <div className="c-upload-main-wrapper">
-
         <div className="c-upload-sec1-wrap">
           <h1>Certificate Image</h1>
-
           <p>
             Upload a JPG, PNG, or WEBP image with a maximum file size of 2MB.
           </p>
         </div>
-
         <div className="c-upload-sec2-wrap">
-
           <button onClick={showModal}>
             Upload Certificate
           </button>
-
           <Modal
             title="Certificate Add"
             open={open}
@@ -127,14 +123,11 @@ const AddCertificate = () => {
               fileList={fileList}
               beforeUpload={(file) => {
                 const result = validateImage(file);
-
                 if (!result.valid) {
                   message.error(result.message);
                   return Upload.LIST_IGNORE;
                 }
-
                 setImage(file);
-
                 setFileList([
                   {
                     uid: file.uid,
@@ -143,7 +136,6 @@ const AddCertificate = () => {
                     originFileObj: file,
                   },
                 ]);
-
                 return false;
               }}
               onRemove={() => {
@@ -165,13 +157,11 @@ const AddCertificate = () => {
 
       {/* certificate lists */}
       {
-        certificate.length === 0 ? "loading...." :
-          certificate?.map((item) => {
+        confirmLoading ? <Skeleton /> : certificate.length === 0 ? <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="No Data Found"/> :
+          certificate?.map((item, index) => {
             return (
-              <div className="certificate-list">
-
+              <div className="certificate-list" key={index}>
                 <div className="certificate-item">
-
                   <div className="certificate-image-wrapper">
                     <img
                       src={item?.url}
@@ -179,18 +169,14 @@ const AddCertificate = () => {
                       className="certificate-image"
                     />
                   </div>
-
                   <div className="certificate-date">
                     <span>Uploaded</span>
                     <p>{item?.createdAt?.toDate()?.toLocaleDateString()}</p>
                   </div>
-
-                  <button className="certificate-delete-btn" onClick={()=> DeleteData(item?.id)}>
+                  <button className="certificate-delete-btn" onClick={() => DeleteData(item?.id)}>
                     Delete
                   </button>
-
                 </div>
-
               </div>
             )
           })
