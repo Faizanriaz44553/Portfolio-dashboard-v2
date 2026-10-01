@@ -6,7 +6,7 @@ import "./Add-Certificate.css"
 import { uploadImage } from "../../services/cloudinary";
 import { db } from "../../../firebase.config";
 import { addDoc, collection, deleteDoc, doc, getDocs, serverTimestamp } from "firebase/firestore";
-// db key ===> certificates
+
 
 const AddCertificate = () => {
   const [image, setImage] = useState(null)

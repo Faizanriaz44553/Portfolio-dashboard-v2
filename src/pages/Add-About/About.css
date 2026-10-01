@@ -1,0 +1,77 @@
+
+.about-form-page {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px 24px;
+  box-sizing: border-box;
+}
+
+.about-form-header {
+  margin-bottom: 24px;
+}
+
+.about-form-header h1 {
+  margin: 0 0 8px;
+  color: #111827;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.about-form-header p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.about-form-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+  box-sizing: border-box;
+}
+
+.about-submit-btn{
+    width: 100%;
+    height: 50px;
+    color: white;
+    background-color: #0958d9;
+    font-weight: 600;
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+    transition: 0.3s ease;
+}
+.about-submit-btn:hover {
+  background-color: #003da5;
+  cursor: pointer;
+}
+.about-submit-btn:hover:not(:disabled) {
+  background-color: #003da5;
+}
+
+.about-submit-btn:disabled {
+  background-color: #91baff;
+  color: #ffffff;
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+/* Responsive layout */
+@media (max-width: 600px) {
+  .about-form-page {
+    padding: 20px 14px;
+  }
+
+  .about-form-header h1 {
+    font-size: 22px;
+  }
+
+  .about-form-card {
+    padding: 18px 14px;
+    border-radius: 10px;
+  }
+}
