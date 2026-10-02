@@ -1,6 +1,6 @@
 import react, { useEffect, useState } from "react"
 import ReuseForm from "../../components/UI/ReuseForm";
-import "./about.css"
+import "./About.css"
 import { uploadImage } from "../../services/cloudinary";
 import { message } from "antd";
 import { doc, getDoc, serverTimestamp, setDoc } from "firebase/firestore";
