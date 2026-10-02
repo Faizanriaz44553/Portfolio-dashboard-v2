@@ -32,7 +32,6 @@ const CustomModal = ({ data , updateData}) => {
         form.setFieldsValue({
           Description: newdata.Description || "",
           Github: newdata.Github || "",
-          Description: newdata.Description || "",
           Link: newdata.Link || "",
         });
         setFeatures(newdata.Features || []);
