@@ -47,7 +47,7 @@ const DashboardLayout = ({ children }) => {
               onClick={() => setMobileOpen(true)}
               className="dashboard-mobile-menu-button"
             />
-            <span className="dashboard-mobile-title">Dashboard</span>
+            <span className="dashboard-mobile-title">Faizan Riaz</span>
           </Header>
 
           <Drawer

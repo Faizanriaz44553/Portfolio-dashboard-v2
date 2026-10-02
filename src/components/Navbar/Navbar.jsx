@@ -51,7 +51,7 @@ const Navbar = ({ collapsed = false, setCollapsed = () => {}, mobile = false, on
     {
       key: "/add-about",
       icon: <UserOutlined />,
-      label: <Link to="/add-about">Add About</Link>,
+      label: <Link to="/add-about">About Settings</Link>,
     },
     {
       key: "/add-certificate",
@@ -107,7 +107,7 @@ const Navbar = ({ collapsed = false, setCollapsed = () => {}, mobile = false, on
             whiteSpace: "nowrap",
           }}
         >
-          Dashboard
+          Faizan Riaz
         </span>
       )}
 
