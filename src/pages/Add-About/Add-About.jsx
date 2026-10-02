@@ -126,7 +126,8 @@ const AddAbout = () => {
       <div className="about-form-header">
         <div>
           <h1>About Section</h1>
-          <p>Manage your profile information and image.</p>
+          <p>Manage your profile information and image. </p>
+          <p>Manage your profile information and image. </p>
         </div>
       </div>
 
