@@ -39,7 +39,6 @@ const ReuseForm = ({isloading, inputs, onSubmit, initialValues = {} }) => {
     e.preventDefault();
     onSubmit(formData);
   };
-console.log(isloading);
 
   return (
     <form onSubmit={handleSubmit}>

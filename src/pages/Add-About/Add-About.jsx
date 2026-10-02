@@ -1,4 +1,4 @@
-import react, { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import ReuseForm from "../../components/UI/ReuseForm";
 import "./About.css"
 import { uploadImage } from "../../services/cloudinary";
@@ -105,7 +105,6 @@ const AddAbout = () => {
     }
   };
 
-
   const getAboutData = async () => {
     const docRef = doc(db, "about", "main");
     const docSnap = await getDoc(docRef);
@@ -118,7 +117,6 @@ const AddAbout = () => {
   useEffect(() => {
     getAboutData()
   }, [])
-  console.log(AboutData);
 
   return (
 

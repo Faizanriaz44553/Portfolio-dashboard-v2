@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { PlusOutlined } from "@ant-design/icons";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "../../../firebase.config";
-import Customloader from "../../components/UI/Customloader.jsx";
 
 const AddHeader = () => {
   const [form] = Form.useForm();
