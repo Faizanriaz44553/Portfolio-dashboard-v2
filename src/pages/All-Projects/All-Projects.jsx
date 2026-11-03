@@ -142,6 +142,7 @@ const AllProjects = () => {
             description="This action cannot be undone."
             okText="Delete"
             cancelText="Cancel"
+            className="delete-btn"
             okButtonProps={{
               danger: true,
             }}

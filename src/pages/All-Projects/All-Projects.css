@@ -252,5 +252,8 @@
   .allprojects-actions {
     display: block;
   }
+  .delete-btn{
+    margin-top: 10px !important;
+  }
 
 }
