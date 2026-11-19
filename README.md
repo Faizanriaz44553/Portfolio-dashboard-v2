@@ -6,8 +6,8 @@ A custom Content Management System (CMS) built with React, Ant Design, Firebase,
 **Live Portfolio:** [faizanriazdev.vercel.app](https://faizanriazdev.vercel.app/)
 
 > **Recruiter / Demo Access:**  
-> **Email:** `faizan@gmail.com`  
-> **Password:** `faizan12345`
+> **Email:** `admin@gmail.com`  
+> **Password:** `admin12345`
 
 ---
 
